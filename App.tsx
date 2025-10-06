@@ -1,15 +1,16 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, useColorScheme, View } from 'react-native'
 import React from 'react'
 import { Image, ImageBackground } from 'expo-image'
 import { useFonts } from 'expo-font'
+import { TEMA_CLARO, TEMA_OSCURO } from './themes/temas'
 
 
 
 export default function App() {
 
-  const COLOR_FONDO = "#121212"
-  const COLOR_TITULO = "#FFDD99"
-  const COLOR_TEXTO = "#ffffff" 
+ 
+  const tema =  useColorScheme() 
+  const temaActivo = tema === "dark" ? TEMA_OSCURO : TEMA_CLARO 
   useFonts({
     "bebasNeue": require("./assets/BebasNeue-Regular.ttf")
   })
@@ -17,7 +18,7 @@ export default function App() {
 
   return (
     
-    <View style={[styles.contenedorPrincipal, { backgroundColor: COLOR_FONDO }]}>
+    <View style={[styles.contenedorPrincipal, { backgroundColor: temaActivo.colorFondo }]}>
         <ScrollView>
         <Image
           source={require("./assets/granada_dark.jpg")}
@@ -27,7 +28,7 @@ export default function App() {
         
 
         <View style={styles.contenedorSecundario}>
-          <Text style={[styles.titulo, { color: COLOR_TITULO }]}>¿Qué hacer en Granada?</Text>
+          <Text style={[styles.titulo, { color: temaActivo.colorTitulo }]}>¿Qué hacer en Granada?</Text>
           <ScrollView horizontal={true}>
             <Image
               source={require("./assets/actividad1.jpg")}
@@ -66,26 +67,26 @@ export default function App() {
         </ScrollView>
         </View>
       
-        <Text style={[styles.titulo, { color: COLOR_TITULO }]}>Las mejores rutas</Text>
+        <Text style={[styles.titulo, { color: temaActivo.colorTitulo }]}>Las mejores rutas</Text>
         <ImageBackground
           source={require("./assets/mejores1.jpg")}
           contentFit='fill'
           style={styles.fotoRuta}
-        ><Text style={[styles.textoFoto, { color: COLOR_TEXTO }]}>Albaicín</Text></ImageBackground>
+        ><Text style={[styles.textoFoto, { color: temaActivo.colorTextoFoto }]}>Albaicín</Text></ImageBackground>
 
         <ImageBackground
           source={require("./assets/mejores2.jpg")}
           contentFit='fill'
           style={styles.fotoRuta}
-        ><Text style={[styles.textoFoto, { color: COLOR_TEXTO }]}>Sacromonte</Text></ImageBackground>
+        ><Text style={[styles.textoFoto, { color: temaActivo.colorTextoFoto }]}>Sacromonte</Text></ImageBackground>
 
         <ImageBackground
           source={require("./assets/mejores3.jpg")}
           contentFit='fill'
           style={styles.fotoRuta}
 
-        ><Text style={[styles.textoFoto, { color: COLOR_TEXTO }]}>El centro</Text></ImageBackground>
-        <Text style={[styles.titulo, { color: COLOR_TITULO }]}>Los mejores alojamientos</Text>
+        ><Text style={[styles.textoFoto, { color: temaActivo.colorTextoFoto }]}>El centro</Text></ImageBackground>
+        <Text style={[styles.titulo, { color: temaActivo.colorTitulo }]}>Los mejores alojamientos</Text>
 
      
    
