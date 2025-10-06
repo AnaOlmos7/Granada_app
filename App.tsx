@@ -17,79 +17,119 @@ export default function App() {
 
   return (
     
-    <View style={[styles.contenedorPrincipal,{backgroundColor:COLOR_FONDO}]}>
-      <ScrollView>
-      <Image
-      source={require("./assets/granada_dark.jpg")}
-      contentFit='fill'
-      style={styles.granadaD}
-      >
-      </Image>
+    <View style={[styles.contenedorPrincipal, { backgroundColor: COLOR_FONDO }]}>
+        <ScrollView>
+        <Image
+          source={require("./assets/granada_dark.jpg")}
+          contentFit='fill'
+          style={styles.granadaD}
+        />
+        
+
+        <View style={styles.contenedorSecundario}>
+          <Text style={[styles.titulo, { color: COLOR_TITULO }]}>¿Qué hacer en Granada?</Text>
+          <ScrollView horizontal={true}>
+            <Image
+              source={require("./assets/actividad1.jpg")}
+              contentFit='fill'
+              style={styles.fotoCarrusel}
+            />
+           
+
+            <Image
+              source={require("./assets/actividad2.jpg")}
+              contentFit='fill'
+              style={styles.fotoCarrusel}
+            />
+            
+
+            <Image
+              source={require("./assets/actividad3.jpg")}
+              contentFit='fill'
+              style={styles.fotoCarrusel}
+            />
+       
+
+            <Image
+              source={require("./assets/actividad4.jpg")}
+              contentFit='fill'
+              style={styles.fotoCarrusel}
+            />
+           
+
+            <Image
+              source={require("./assets/actividad5.jpg")}
+              contentFit='fill'
+              style={styles.fotoCarrusel}
+            />
+           
+        </ScrollView>
+        </View>
       
+        <Text style={[styles.titulo, { color: COLOR_TITULO }]}>Las mejores rutas</Text>
+        <ImageBackground
+          source={require("./assets/mejores1.jpg")}
+          contentFit='fill'
+          style={styles.fotoRuta}
+        ><Text style={[styles.textoFoto, { color: COLOR_TEXTO }]}>Albaicín</Text></ImageBackground>
 
-    <View style= {styles.contenedorSecundario}>
-      <Text style= {[styles.titulo,{color:COLOR_TITULO}]}>¿Qué hacer en Granada?</Text>
-        <ScrollView horizontal={true}>
-   <Image
-      source={require("./assets/actividad1.jpg")}
-      contentFit='fill'
-      style={styles.fotoCarrusel}
-      >
-      </Image>
+        <ImageBackground
+          source={require("./assets/mejores2.jpg")}
+          contentFit='fill'
+          style={styles.fotoRuta}
+        ><Text style={[styles.textoFoto, { color: COLOR_TEXTO }]}>Sacromonte</Text></ImageBackground>
 
-      <Image
-      source={require("./assets/actividad2.jpg")}
-      contentFit='fill'
-      style={styles.fotoCarrusel}
-      >
-      </Image>
+        <ImageBackground
+          source={require("./assets/mejores3.jpg")}
+          contentFit='fill'
+          style={styles.fotoRuta}
 
-      <Image
-      source={require("./assets/actividad3.jpg")}
-      contentFit='fill'
-      style={styles.fotoCarrusel}
-      >
-      </Image>
+        ><Text style={[styles.textoFoto, { color: COLOR_TEXTO }]}>El centro</Text></ImageBackground>
+        <Text style={[styles.titulo, { color: COLOR_TITULO }]}>Los mejores alojamientos</Text>
 
-      <Image
-      source={require("./assets/actividad4.jpg")}
-      contentFit='fill'
-      style={styles.fotoCarrusel}
-      >
-      </Image>
+     
+   
 
-      <Image
-      source={require("./assets/actividad5.jpg")}
-      contentFit='fill'
-      style={styles.fotoCarrusel}
-      >
-      </Image>
-      </ScrollView>
+        <View style={styles.contenedorFotosAlojamientos}>
+
+        <View style={styles.contenedorAlojamiento}>
+          <Image
+                source={require("./assets/alojamiento1.jpg")}
+                contentFit='fill'
+                style={styles.fotoAlojamiento}
+        />
+      </View>
+  
+        <View style={styles.contenedorAlojamiento}>
+          <Image
+                source={require("./assets/alojamiento2.jpg")}
+                contentFit='fill'
+                style={styles.fotoAlojamiento}
+        />
+      </View>
+  
+        <View style={styles.contenedorAlojamiento}>
+          <Image
+              source={require("./assets/alojamiento3.jpg")}
+              contentFit='fill'
+              style={styles.fotoAlojamiento}
+        />
+      </View>
+  
+      <View style={styles.contenedorAlojamiento}>
+          <Image
+              source={require("./assets/alojamiento4.jpg")}
+              contentFit='fill'
+              style={styles.fotoAlojamiento}
+        />
+      </View>
+  
+</View>
+      
+         </ScrollView>
       </View>
       
-       <Text style= {[styles.titulo,{color:COLOR_TITULO}]}>Las mejores rutas</Text>
-        <ImageBackground
-        source={require("./assets/mejores1.jpg")}
-        contentFit='fill'
-        style={styles.fotoRuta}
-      ><Text style= {[styles.textoFoto,{color:COLOR_TEXTO}]}>Albaicín</Text></ImageBackground>
-
-       <ImageBackground
-        source={require("./assets/mejores2.jpg")}
-        contentFit='fill'
-        style={styles.fotoRuta}
-      ><Text style= {[styles.textoFoto,{color:COLOR_TEXTO}]}>Sacromonte</Text></ImageBackground>
-
-      <ImageBackground
-        source={require("./assets/mejores3.jpg")}
-        contentFit='fill'
-        style={styles.fotoRuta}
-      
-      ><Text style= {[styles.textoFoto,{color:COLOR_TEXTO}]}>El centro</Text></ImageBackground>
-
-    </ScrollView>
-    </View>
-    
+  
   )
 }
 
@@ -144,6 +184,25 @@ const styles = StyleSheet.create({
 	                height: 2,
 },
 textShadowRadius: 5
-  }
+  },
+
+contenedorFotosAlojamientos: {
+  flex: 1,
+  flexDirection: "row",
+  flexWrap: "wrap",
+  gap:5,
+  margin: 0,
+  marginBottom: 15
+},
+
+fotoAlojamiento: {
+  width: "100%",
+  height: "100%"
+},
+
+contenedorAlojamiento: {
+  width: "49%",
+  aspectRatio: 1
+}
   
 })
