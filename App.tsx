@@ -7,21 +7,64 @@ import { Image } from 'expo-image'
 export default function App() {
 
   const COLOR_FONDO = "#121212"
-  const COLOR_TITULO = "FFDD99"
-  const COLOR_TEXTO = "ffffff" 
+  const COLOR_TITULO = "#FFDD99"
+  const COLOR_TEXTO = "#ffffff" 
 
 
   return (
-    <ScrollView>
+    
     <View style={[styles.contenedorPrincipal,{backgroundColor:COLOR_FONDO}]}>
+      <ScrollView>
       <Image
       source={require("./assets/granada_dark.jpg")}
       contentFit='fill'
       style={styles.granadaD}
       >
       </Image>
+      
+    
+    <View style= {styles.contenedorSecundario}>
+      <Text style= {[styles.titulo,{color:COLOR_TITULO}]}>"Qué hacer en Granada?"</Text>
+        <ScrollView horizontal={true}>
+   <Image
+      source={require("./assets/actividad1.jpg")}
+      contentFit='fill'
+      style={styles.fotoCarrusel}
+      >
+      </Image>
+
+      <Image
+      source={require("./assets/actividad2.jpg")}
+      contentFit='fill'
+      style={styles.fotoCarrusel}
+      >
+      </Image>
+
+      <Image
+      source={require("./assets/actividad3.jpg")}
+      contentFit='fill'
+      style={styles.fotoCarrusel}
+      >
+      </Image>
+
+      <Image
+      source={require("./assets/actividad4.jpg")}
+      contentFit='fill'
+      style={styles.fotoCarrusel}
+      >
+      </Image>
+
+      <Image
+      source={require("./assets/actividad5.jpg")}
+      contentFit='fill'
+      style={styles.fotoCarrusel}
+      >
+      </Image>
+      </ScrollView>
+      </View>
+      </ScrollView>
     </View>
-    </ScrollView>
+    
   )
 }
 
@@ -34,5 +77,26 @@ const styles = StyleSheet.create({
   granadaD:{
     width: "100%",
     height: 250
+  },
+
+  contenedorSecundario: {
+    flex: 1,
+    marginHorizontal: 10,
+    padding: 5
+
+  },
+
+  titulo: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginVertical: 20
+  },
+
+  fotoCarrusel: {
+    width: 250,
+    height: 300,
+    marginRight: 10,
+    borderRadius: 10
+
   }
 })
