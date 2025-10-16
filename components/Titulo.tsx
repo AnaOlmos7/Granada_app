@@ -1,7 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { Temas } from '../themes/Temas'
 
-export default function Titulo({ texto,tema}: { texto: string; tema: any}) {
+
+type TituloProps = {
+  texto: string;
+  tema:Temas;
+}
+
+export default function Titulo({ texto,tema}:TituloProps){
   return (
     
       <Text style= {[styles.titulo, { color: tema.colorTitulo}]}>

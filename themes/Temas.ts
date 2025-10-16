@@ -1,3 +1,19 @@
+import { ImageSource } from "react-native"
+
+
+export type Temas = {
+    colorFondo:string;
+    colorTitulo:string;
+    colorTextoFoto:string;
+    logo:ImageSource;
+}
+{
+
+}
+
+
+
+
 const TEMA_OSCURO = {
     colorFondo: "#121212",
     colorTitulo: "#ffdd99",

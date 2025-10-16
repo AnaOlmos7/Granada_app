@@ -1,10 +1,12 @@
-import { StyleSheet, View } from 'react-native'
+import { ImageSourcePropType, StyleSheet, View } from 'react-native'
 import { Image } from 'expo-image'
 import React from 'react'
 
-export default function FotoAlojamiento({imagen}:
-    {imagen: any}
-) {
+type fotoAlojamientoProp = {
+    imagen: ImageSourcePropType;
+}
+
+export default function FotoAlojamiento({imagen}: fotoAlojamientoProp) {
   return (
         <Image 
         source={imagen}

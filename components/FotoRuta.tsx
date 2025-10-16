@@ -1,11 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { ImageSource, ImageSourcePropType, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { ImageBackground } from 'expo-image'
+import { Temas } from '../themes/Temas';
 
-export default function FotoRuta({texto,imagen,tema}: {
+
+type fotoRutaProps= {
     texto:string;
-    imagen: any;
-    tema: any}) {
+    imagen:ImageSourcePropType;
+    tema: Temas;
+}
+
+export default function FotoRuta({texto,imagen,tema}: fotoRutaProps) {
     
   return (
      <ImageBackground
