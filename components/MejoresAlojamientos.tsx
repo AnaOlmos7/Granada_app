@@ -16,18 +16,18 @@ export default function MejoresAlojamientos({tema,listaAlojamientos}:mejoresAloj
 
           <View style={styles.contenedorFotosAlojamientos}>
 
-            <View style={styles.contenedorAlojamiento}>  
+ 
             
             {
               listaAlojamientos.map((alojamiento, index) => 
+              <View key={index}style={styles.contenedorAlojamiento}>  
               <FotoAlojamiento  
-              key={index}
               imagen = {alojamiento.imagen}
-              /> )
-            }
+              /> 
+            
             </View> 
-        
-           </View>
+          )}
+       </View>
           
   )
 }
