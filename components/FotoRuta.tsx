@@ -15,7 +15,7 @@ export default function FotoRuta({texto,imagen,tema}: fotoRutaProps) {
   return (
      <ImageBackground
               source={imagen}
-              style={styles.fotoRuta}>88
+              style={styles.fotoRuta}>
               <Text style={[styles.textoFoto, { color:tema.colorTextoFoto}]}>
                 {texto}
                 </Text>

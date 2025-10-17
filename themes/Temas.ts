@@ -7,9 +7,8 @@ export type Temas = {
     colorTextoFoto:string;
     logo:ImageSource;
 }
-{
 
-}
+
 
 
 

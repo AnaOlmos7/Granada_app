@@ -1,38 +1,34 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { ImageSourcePropType, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import FotoAlojamiento from './FotoAlojamiento'
+import { Temas } from '../themes/Temas'
+import {Alojamiento} from '../model/Tipos'
 
+type mejoresAlojamientosProp = {
+  tema:Temas;
+  listaAlojamientos: Array <Alojamiento>;
+  
+}
 
-export default function MejoresAlojamientos() {
+export default function MejoresAlojamientos({tema,listaAlojamientos}:mejoresAlojamientosProp) {
+  
   return (
-    <View style={styles.contenedorFotosAlojamientos}>
+
+          <View style={styles.contenedorFotosAlojamientos}>
 
             <View style={styles.contenedorAlojamiento}>  
-              <FotoAlojamiento imagen={require("../assets/alojamiento1.jpg")}
-              />
-            </View>  
-           
-          
-            <View style={styles.contenedorAlojamiento}>  
-              <FotoAlojamiento imagen={require("../assets/alojamiento2.jpg")}
-              />
-            </View>  
-
             
-            <View style={styles.contenedorAlojamiento}>  
-              <FotoAlojamiento imagen={require("../assets/alojamiento3.jpg")}
-              />
-            </View>  
-
-            
-            <View style={styles.contenedorAlojamiento}>  
-              <FotoAlojamiento imagen={require("../assets/alojamiento4.jpg")}
-              />
-            </View>  
-      
+            {
+              listaAlojamientos.map((alojamiento, index) => 
+              <FotoAlojamiento  
+              key={index}
+              imagen = {alojamiento.imagen}
+              /> )
+            }
+            </View> 
+        
+           </View>
           
-      
-    </View>
   )
 }
 

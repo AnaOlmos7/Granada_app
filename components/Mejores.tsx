@@ -3,33 +3,26 @@ import React from 'react'
 import FotoRuta from './FotoRuta'
 import { TEMA_CLARO,TEMA_OSCURO } from '../themes/Temas'
 import { Temas } from '../themes/Temas'
+import {Ruta} from '../model/Tipos'
 
 type mejoresRutasProps = {
     tema:Temas;
+    listaRutas:Array<Ruta>
 }
 
-export default function Mejores({ tema }: mejoresRutasProps) {
+export default function Mejores({ tema,listaRutas}: mejoresRutasProps) {
 
 
   return (
     <>
-  <FotoRuta
-          texto="Albaicin"
-          imagen={require("../assets/mejores1.jpg")}
-          tema={tema}     
-         />
-  
-          <FotoRuta
-          texto="Sacromonte"
-          imagen={require("../assets/mejores2.jpg")}
-          tema={tema}     
-         />
-  
+    {
+      listaRutas.map((ruta, index) =>
          <FotoRuta
-          texto="El centro"
-          imagen={require("../assets/mejores3.jpg")}
-          tema={tema}     
-         />
+        key={index}
+        texto = {ruta.nombre}
+        imagen = {ruta.imagen}
+        tema={tema}/> )
+    }
     </>
   )
 }

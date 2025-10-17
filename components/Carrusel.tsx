@@ -1,55 +1,38 @@
-import { StyleSheet, Text, ScrollView, View, useColorScheme } from 'react-native'
+import { StyleSheet, Text, ScrollView, View, useColorScheme, ImageSourcePropType } from 'react-native'
 import { Image } from 'expo-image'
 import React from 'react'
 import Titulo from './Titulo'
-import { TEMA_OSCURO, TEMA_CLARO } from '../themes/Temas'
+import { TEMA_OSCURO, TEMA_CLARO, Temas } from '../themes/Temas'
+import { CarruselT } from '../model/Tipos'
 
-export default function Carrusel() {
+      type carruselProps = {
+        tema: Temas;
+        listaFotos:Array<CarruselT>
+      }
 
-      const tema =  useColorScheme() 
-      const temaActivo = tema === "dark" ? TEMA_OSCURO : TEMA_CLARO 
-
+export default function Carrusel({tema,listaFotos}: carruselProps) {
+ 
+ 
   return (
 
 <View style={styles.contenedorSecundario}>
-          <Titulo texto="¿Qué hacer en Granada?" tema={temaActivo}></Titulo>
-          <ScrollView horizontal={true}>
-            <Image
-              source={require("../assets/actividad1.jpg")}
-              contentFit='fill'
-              style={styles.fotoCarrusel}
-            />
-           
 
-            <Image
-              source={require("../assets/actividad2.jpg")}
-              contentFit='fill'
-              style={styles.fotoCarrusel}
-            />
-            
+          <ScrollView horizontal={true}
+          style={styles.fotoCarrusel}
+            >
 
+            { listaFotos.map((foto,index) => (
             <Image
-              source={require("../assets/actividad3.jpg")}
-              contentFit='fill'
-              style={styles.fotoCarrusel}
-            />
-       
-
-            <Image
-              source={require("../assets/actividad4.jpg")}
-              contentFit='fill'
-              style={styles.fotoCarrusel}
-            />
-           
-
-            <Image
-              source={require("../assets/actividad5.jpg")}
-              contentFit='fill'
-              style={styles.fotoCarrusel}
-            />
-           
+            key={index}
+            source={foto.imagen}
+            contentFit='cover'
+            style={styles.fotoCarrusel}
+            /> 
+          ))}
+          
         </ScrollView>
         </View>
+      
   )
 }
 
